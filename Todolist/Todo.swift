@@ -9,12 +9,15 @@ import SwiftData
 import SwiftUI
 
 @Model
-class Todo {
-  var id: UUID
+class Todo: Identifiable {
+  var id = UUID()
   var title: String
+  var detail: String
+  var priority: String
   
-  init(id: UUID, title: String) {
-    self.id = id
+  init(title: String, detail: String, priority: String) {
     self.title = title
+    self.detail = detail
+    self.priority = priority
   }
 }
