@@ -12,12 +12,12 @@ import SwiftUI
 class Todo: Identifiable {
   var id = UUID()
   var title: String
-  var detail: String
+  var details: String
   var priority: String
   
-  init(title: String, detail: String, priority: String) {
+  init(title: String, details: String, priority: String) {
     self.title = title
-    self.detail = detail
+    self.details = details
     self.priority = priority
   }
 }

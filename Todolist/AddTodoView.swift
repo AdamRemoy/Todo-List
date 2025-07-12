@@ -40,7 +40,7 @@ struct AddTodoView: View {
         }
         Section {
           Button("Save") {
-            let newTodo = Todo(title: title, detail: detail, priority: priority)
+            let newTodo = Todo(title: title, details: detail, priority: priority)
             modelContext.insert(newTodo)
             dismiss()
           }
@@ -55,6 +55,6 @@ struct AddTodoView: View {
 }
 
 #Preview {
-  let testTodo = Todo(title: "Test", detail: "Many details here", priority: "Medium")
+  let testTodo = Todo(title: "Test", details: "Many details here", priority: "Medium")
   AddTodoView(task: testTodo)
 }
