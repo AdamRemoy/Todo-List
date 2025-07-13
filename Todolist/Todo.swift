@@ -14,10 +14,12 @@ class Todo: Identifiable {
   var title: String
   var details: String
   var priority: String
+  var status: Bool
   
-  init(title: String, details: String, priority: String) {
+  init(title: String, details: String, priority: String, status: Bool) {
     self.title = title
     self.details = details
     self.priority = priority
+    self.status = status
   }
 }

@@ -14,8 +14,6 @@ struct AddTodoView: View {
   @Environment(\.modelContext) var modelContext
   @Environment(\.dismiss) var dismiss
   
-  var task: Todo
-  
   @State private var title = ""
   @State private var detail = ""
   @State private var priority = "Medium"
@@ -25,22 +23,18 @@ struct AddTodoView: View {
   var body: some View {
     NavigationStack {
       List {
-        Section ("Todo") {
+        Section {
           TextField("Title", text: $title)
           TextField("Description", text: $detail)
-          VStack (alignment: .leading){
-            Text("Choose priority")
-            Picker ("Select priority", selection: $priority) {
-              ForEach(priorityArray, id: \.self) {
-                Text($0)
-              }
+          Picker ("Select priority", selection: $priority) {
+            ForEach(priorityArray, id: \.self) {
+              Text($0)
             }
-            .pickerStyle(.segmented)
           }
         }
         Section {
           Button("Save") {
-            let newTodo = Todo(title: title, details: detail, priority: priority)
+            let newTodo = Todo(title: title, details: detail, priority: priority, status: false)
             modelContext.insert(newTodo)
             dismiss()
           }
@@ -55,6 +49,5 @@ struct AddTodoView: View {
 }
 
 #Preview {
-  let testTodo = Todo(title: "Test", details: "Many details here", priority: "Medium")
-  AddTodoView(task: testTodo)
+  AddTodoView()
 }
